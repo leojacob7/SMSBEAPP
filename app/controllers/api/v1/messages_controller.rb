@@ -30,6 +30,7 @@ class Api::V1::MessagesController < ApplicationController
         render json: {message: MessageSerializer.new(@message), status: :created}
       rescue => e
         # Handle the exception
+        puts ">>errror>>", e
         render json: {errors: 'Could not process sms', status: :unprocessable_entity}
       end
       
